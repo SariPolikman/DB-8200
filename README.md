@@ -1,62 +1,34 @@
-# Project Title
+# creating database
 
-Simple overview of use/purpose.
+organized collection of data supported basic operation : read, write, delete, update and queries, join, index
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+implement realation database, by effective access to disk, optimization by key-index, and implement actions by abstract way
 
 ## Getting Started
 
-### Dependencies
-
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
-
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* "pip install dataclasses" (downloand dataclasses library )
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
+import our code to your project by the folloing the lines:
 ```
-code blocks for commands
-```
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
+from db import DataBase
+from db_api import DBField, SelectionCriteria, DB_ROOT, DBTable
 ```
 
-## Authors
+## Test
 
-Contributors names and contact info
+If you change the code
+We recommend that you run the attached tests 
+to make sure you have not violated the existing code
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+### Executing test
 
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+-pip install pytest
+-run "create_db_backup.py"
+for run spesific test command "py.test -d {test_name}"
+run all tests command: "py.test"
