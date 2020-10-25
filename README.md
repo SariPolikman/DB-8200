@@ -1,7 +1,11 @@
-# creating database
-organized collection of data supported basic operation : read, write, delete, update and queries, join, index
+# DB
+Build a database in two intensive days, in full self-production\
+Differing relational functionalities within the same generic API and pre-written test cases using Python. \
+Involving run-time and I/O bound optimizations.
+
 ## Description
-implement realation database, by effective access to disk, optimization by key-index, and implement actions by abstract way
+organized collection of data supported : CRUD operation, queries, join and index\
+by effective access to disk, optimization by key-index, and implement actions by abstract way
 ## Getting Started
 ### Installing
 * "pip install dataclasses" (downloand dataclasses library )
