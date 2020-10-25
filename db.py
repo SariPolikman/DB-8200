@@ -2,7 +2,7 @@ import csv
 import json
 import datetime
 from collections import defaultdict
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List
 from dataclasses_json import dataclass_json
@@ -70,16 +70,11 @@ class DBTable(db_api.DBTable):
     name: str
     fields: List[db_api.DBField]
     key_field_name: str
-    key_index: dict
+    key_index: dict = field(default_factory=dict)
 
-    def __init__(self, name: str,
-                 fields: List[db_api.DBField],
-                 key_field_name: str):
-        self.name = name
-        self.fields = fields
-        self.key_field_name = key_field_name
-        self.key_index = {}
+    # metadata = {"list deleted" :[],  "count_rows":0 , "indexes": ["key"]}  # {list deleted :[],  "count_rows": , "indexes": ["key"]}  -> TableName_metadata.json
 
+    def __post_init__(self):
         my_file = Path(DB_ROOT / f'{self.key_field_name}_index_{self.name}.json')
         if my_file.is_file():
             with (DB_ROOT / f'{self.key_field_name}_index_{self.name}.json').open('r') as metadata_file:
@@ -302,7 +297,8 @@ def create_hash_table(_list, keys_of_hash):
 @dataclass_json
 @dataclass
 class DataBase(db_api.DataBase):
-    def __init__(self):
+
+    def __post_init__(self):
         global db_metadata
 
         my_file = Path(DB_ROOT / 'metadata.json')
